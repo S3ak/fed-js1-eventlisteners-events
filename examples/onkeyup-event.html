@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/libs/nav.js"></script>
+    <title>OnKeyUp Events</title>
+  </head>
+  <body>
+    <my-nav>OnKeyUp Events</my-nav>
+    <section>
+      <form>
+        <label for="search">search</label>
+        <input type="text" id="search" />
+      </form>
+
+      <ul></ul>
+    </section>
+
+    <script>
+      const searchInputEl = document.querySelector("#search");
+      const listContainerEl = document.querySelector("ul");
+
+      const listOfStrings = [
+        "Hello",
+        "World",
+        "This",
+        "Is",
+        "A",
+        "List",
+        "Of",
+        "Strings",
+      ];
+
+      createList(listOfStrings);
+
+      searchInputEl.addEventListener("keyup", (event) => {
+        console.log("current input value >>>", event.target.value);
+        filterList();
+      });
+
+      function createList(list) {
+        listContainerEl.innerHTML = "";
+
+        list.forEach((item) => {
+          const listItemEl = `<li>${item}</li>`;
+          listContainerEl.innerHTML += listItemEl;
+
+          // const listItemEl = document.createElement("li");
+          // listItemEl.textContent = item;
+          // listContainerEl.appendChild(listItemEl);
+        });
+      }
+
+      function filterList() {
+        const searchInputValue = searchInputEl.value;
+        const filteredList = listOfStrings.filter((item) => {
+          return item.toLowerCase().includes(searchInputValue.toLowerCase());
+        });
+
+        createList(filteredList);
+      }
+    </script>
+  </body>
+</html>

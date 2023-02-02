@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/libs/nav.js"></script>
+    <title>addEventListener</title>
+  </head>
+  <body>
+    <my-nav>addEventListener</my-nav>
+    <section>
+      <button>Click me</button>
+    </section>
+    <script>
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", () => {
+        console.log("button clicked");
+      });
+    </script>
+  </body>
+</html>
