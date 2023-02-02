@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/libs/nav.js"></script>
+    <title>Adding event handlers in a loop</title>
+  </head>
+  <body>
+    <my-nav>Adding event handlers in a loop</my-nav>
+    <section>
+      <div class="js-box">Box 1</div>
+      <div class="js-box">Box 2</div>
+      <div class="js-box">Box 3</div>
+    </section>
+
+    <script>
+      const boxes = document.querySelectorAll(".js-box");
+
+      boxes.forEach((box) => {
+        box.addEventListener("click", function () {
+          this.style.backgroundColor = "red";
+        });
+      });
+    </script>
+  </body>
+</html>

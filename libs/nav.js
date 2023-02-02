@@ -38,6 +38,7 @@ class Nav extends HTMLElement {
         <a href="/examples.html">Examples</a>
         <a href="/examples/length-trim.html">Length & trim</a>
         <a href="/examples/onkeyup-event.html">On key up event</a>
+        <a href="/examples/scroll-event.html">Scroll Event</a>
       <nav>
     `;
 

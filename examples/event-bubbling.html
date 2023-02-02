@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/libs/nav.js"></script>
+    <title>Event bubbling</title>
+  </head>
+  <body>
+    <my-nav>Event bubbling</my-nav>
+    <section>
+      <div id="ancestor">
+        <p id="parent">
+          <button id="button">Click me</button>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      const div1 = document.querySelector("#ancestor");
+      const p1 = document.querySelector("#parent");
+      const button = document.querySelector("#button");
+
+      div1.addEventListener("click", function () {
+        console.log("div1 was clicked");
+      });
+
+      p1.addEventListener("click", function () {
+        console.log("p1 was clicked");
+      });
+
+      button.addEventListener("click", function () {
+        console.log("button was clicked");
+      });
+    </script>
+  </body>
+</html>

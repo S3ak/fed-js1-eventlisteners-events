@@ -37,10 +37,13 @@
 
       searchInputEl.addEventListener("keyup", (event) => {
         console.log("current input value >>>", event.target.value);
-        filterList();
+
+        const filteredList = filterList(listOfStrings);
+        createDOMList(filteredList);
       });
 
-      function createList(list) {
+      // Add javascript list to HTML
+      function createDOMList(list) {
         listContainerEl.innerHTML = "";
 
         list.forEach((item) => {
@@ -53,13 +56,14 @@
         });
       }
 
-      function filterList() {
+      // Search through list
+      function filterList(list) {
         const searchInputValue = searchInputEl.value;
-        const filteredList = listOfStrings.filter((item) => {
+        const filteredList = list.filter((item) => {
           return item.toLowerCase().includes(searchInputValue.toLowerCase());
         });
 
-        createList(filteredList);
+        return filteredList;
       }
     </script>
   </body>

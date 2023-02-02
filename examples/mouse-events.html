@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/libs/nav.js"></script>
+    <title>mouseover and mouseout events</title>
+  </head>
+  <body>
+    <my-nav>mouseover and mouseout events</my-nav>
+    <section>
+      <div id="box">Hover over me</div>
+    </section>
+
+    <script>
+      const box = document.querySelector("#box");
+
+      box.addEventListener("mouseover", function () {
+        box.style.backgroundColor = "red";
+      });
+
+      box.addEventListener("mouseout", function () {
+        box.style.backgroundColor = "";
+      });
+    </script>
+  </body>
+</html>
