@@ -19,29 +19,30 @@
     </section>
 
     <script>
-      const searchInputEl = document.querySelector("#search");
-      const listContainerEl = document.querySelector("ul");
+      const searchInputEl = document.querySelector('#search');
+      const listContainerEl = document.querySelector('ul');
 
       const listOfStrings = [
-        "Hello",
-        "World",
-        "This",
-        "Is",
-        "A",
-        "List",
-        "Of",
-        "Strings",
+        'Hello',
+        'World',
+        'This',
+        'Is',
+        'A',
+        'List',
+        'Of',
+        'Strings',
       ];
 
-      createList(listOfStrings);
+      createDOMList(listOfStrings);
 
-      searchInputEl.addEventListener("keyup", (event) => {
-        console.log("current input value >>>", event.target.value);
-        filterList();
+      searchInputEl.addEventListener('keyup', (event) => {
+        console.log('current input value >>>', event.target.value);
+        const newList = filterList(listOfStrings);
+        createDOMList(newList);
       });
 
-      function createList(list) {
-        listContainerEl.innerHTML = "";
+      function createDOMList(list) {
+        listContainerEl.innerHTML = '';
 
         list.forEach((item) => {
           const listItemEl = `<li>${item}</li>`;
@@ -53,13 +54,13 @@
         });
       }
 
-      function filterList() {
+      function filterList(list) {
         const searchInputValue = searchInputEl.value;
-        const filteredList = listOfStrings.filter((item) => {
+        const filteredList = list.filter((item) => {
           return item.toLowerCase().includes(searchInputValue.toLowerCase());
         });
 
-        createList(filteredList);
+        return filteredList;
       }
     </script>
   </body>
