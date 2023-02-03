@@ -37,7 +37,12 @@ class Nav extends HTMLElement {
         <a href="/">Home</a>
         <a href="/examples.html">Examples</a>
         <a href="/examples/length-trim.html">Length & trim</a>
+        <a href="/examples/addeventlistener.html">addeventlistener</a>
         <a href="/examples/onkeyup-event.html">On key up event</a>
+        <a href="/examples/event-bubbling.html">Event bubbling</a>
+        <a href="/examples/data-attributes.html">data-attributes</a>
+        <a href="/examples/event-loop.html">Event loop</a>
+        <a href="/examples/mouse-events.html">Mouse Events</a>
         <a href="/examples/scroll-event.html">Scroll Event</a>
       <nav>
     `;
