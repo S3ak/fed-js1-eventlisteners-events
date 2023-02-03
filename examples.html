@@ -9,6 +9,82 @@
   </head>
   <body>
     <my-nav></my-nav>
-    <section></section>
+    <section>
+      <label for="js-search">Search</label>
+      <input type="text" id="js-search" />
+      <ul id="js-list"></ul>
+      <h2>My new filtered list</h2>
+      <ul id="js-filtered-list"></ul>
+    </section>
+
+    <script>
+      // Question 1: Create a list that can be filtered by a search term
+      /*
+    1. Get the input field element from the DOM
+*/
+      // const searchInputEl = document.querySelector("#js-search");
+
+      /*
+    2. Get the empty UL element from the DOM
+*/
+      const listContainerEl = document.querySelector("#js-list");
+      // const newListContainerEl = document.querySelector("#js-filtered-list");
+
+      /*
+    3. Create an array of strings
+*/
+      const listOfStrings = [
+        "Hello",
+        "World",
+        "This",
+        "Is",
+        "A",
+        "List",
+        "Of",
+        "Strings",
+      ];
+
+      /*
+    4. Populate the UL element with the array of strings using innerHTML
+*/
+      for (let i = 0; i < listOfStrings.length; i++) {
+        const itemEl = `<li>${listOfStrings[i]}</li>`;
+        document.querySelector("#js-list").innerHTML += itemEl;
+      }
+
+      /*
+    5. Add an event listner to the input field using the keyup event
+*/
+      document
+        .querySelector("#js-search")
+        .addEventListener("keyup", function () {
+          document.querySelector("#js-list").innerHTML = "";
+          console.log("working", document.querySelector("#js-search").value);
+
+          /*
+            6. Filter the array of strings based on the search term using the includes method
+        */
+
+          console.log("listOfStrings", listOfStrings);
+
+          const newList = listOfStrings.filter(function (foo) {
+            return foo
+              .toLowerCase()
+              .includes(
+                document.querySelector("#js-search").value.toLowerCase()
+              ); // true or false
+          });
+
+          console.log("newList", newList);
+
+          /*
+    7. Insert the new filtered list to the DOM using innerHTML
+*/
+          for (let i = 0; i < newList.length; i++) {
+            const itemEl = `<li>${newList[i]}</li>`;
+            document.querySelector("#js-list").innerHTML += itemEl;
+          }
+        });
+    </script>
   </body>
 </html>
